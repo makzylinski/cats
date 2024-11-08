@@ -1,18 +1,22 @@
 <div class="login">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-    <div class="login__form">
+  <form
+    class="login__form"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit(loginForm)"
+  >
+    <div class="login__form--item">
       <label for="email">Email</label>
       <input type="text" formControlName="email" />
       @if (!loginForm.get('email')?.valid && loginForm.get('email')?.touched) {
-      <span class="form__error"> Please, enter valid email. </span>
+      <span class="login__form--error"> Please, enter valid email. </span>
       }
     </div>
-    <div class="login__form">
+    <div class="login__form--item">
       <label for="password">Password</label>
       <input type="password" formControlName="password" />
       @if (!loginForm.get('password')?.valid &&
       loginForm.get('password')?.touched) {
-      <span class="form__error"> Password is too short </span>
+      <span class="login__form--error"> Password is too short </span>
       }
     </div>
   </form>
